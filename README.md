@@ -133,13 +133,13 @@ docker run -d --name db-mysql-vehiculos --network netw-vehiculos --env-file .env
 <img width="886" height="180" alt="image" src="https://github.com/user-attachments/assets/73bc67d7-a332-40b4-9525-fc2ba37221f1" />
 
 Explicación:
-CONTAINER ID: Identificador único del contenedor (39bc102b715e)
-IMAGE: Imagen utilizada (mysql:8.3)
-COMMAND: Comando de entrada ejecutado
-CREATED/STATUS: Tiempo de creación y estado actual
-PORTS: Mapeo de puertos - MySQL accesible en puerto 3306 tanto en IPv4 como IPv6
-NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
-Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
+- CONTAINER ID: Identificador único del contenedor (39bc102b715e)
+- IMAGE: Imagen utilizada (mysql:8.3)
+- COMMAND: Comando de entrada ejecutado
+- CREATED/STATUS: Tiempo de creación y estado actual
+- PORTS: Mapeo de puertos - MySQL accesible en puerto 3306 tanto en IPv4 como IPv6
+- NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
+- Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
 
 ### PASO 5: Descarga y Ejecución de phpMyAdmin
 
