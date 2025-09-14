@@ -245,5 +245,5 @@ Beneficios Obtenidos
 
 # Recomendaciones.
 
- - Es necesario crear primero la red Docker y luego el contenedor. 
+ - Es necesario crear primero la red Docker y luego el contenedor, ya que este inconveniente se presento al momento de ejecutar la practica. 
  - Se debe validar que la versión de MySQL sea compatible con phpMyAdmin, ya que una incompatibilidad entre ambas versiones podría causar errores al intentar levantar el contenedor.
