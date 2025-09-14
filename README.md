@@ -237,12 +237,11 @@ Separación de Configuración: El archivo .env centraliza las variables sensible
 
 Beneficios Obtenidos
 
-Portabilidad: El sistema puede ejecutarse en cualquier máquina con Docker instalado
-Escalabilidad: Fácil agregar nuevos servicios o réplicas de contenedores
-Mantenibilidad: Cada servicio se actualiza independientemente
-Aislamiento: Los fallos en un contenedor no afectan a otros servicios
-Reproducibilidad: El entorno se puede recrear exactamente en cualquier momento
+-- Portabilidad: El sistema puede ejecutarse en cualquier máquina con Docker instalado
+-- Escalabilidad: Fácil agregar nuevos servicios o réplicas de contenedores
+-- Mantenibilidad: Cada servicio se actualiza independientemente
+-- Aislamiento: Los fallos en un contenedor no afectan a otros servicios
+-- Reproducibilidad: El entorno se puede recrear exactamente en cualquier momento
 
-## Recomendaciones.
-
-    Se debe crear primero el volumen y luego el contenedor asociar a estas movidas 
+# Recomendaciones.
+    Se debe crear primero el volumen y luego el contenedor. 
