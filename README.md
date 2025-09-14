@@ -196,7 +196,7 @@ docker network rm netw-vehiculos
 PracticaGrupo2/
 ├── .env
 ├── init.sql
-├── despliege.txt
+├── despliegue.txt
 └── README.md
 ```
 
