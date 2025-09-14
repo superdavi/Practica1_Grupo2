@@ -46,7 +46,7 @@ phpmyadmin:5.2.2
 - **Network**: Ambos contenedores utilizan la red personalizada `netw-vehiculos`
 - **Volumes**: Persistencia de datos MySQL y script de inicialización
 - **Ports**: MySQL en puerto 3306, phpMyAdmin en puerto 8080
-**CAPTURA DE PANTALLA**
+**Captura de la Ejecución**
 <img width="886" height="609" alt="image" src="https://github.com/user-attachments/assets/ee9c91e9-a51f-4880-9fc3-50803a45073c" />
 
 ### PASO 2: Estructura de Base de Datos (init.sql)
@@ -94,6 +94,8 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 - **Tabla vehiculo**: Contiene datos de los vehículos con referencia al propietario
 - **Relación**: Clave foránea entre vehículo y propietario (1:N)
 - **Datos de prueba**: 5 propietarios y 5 vehículos para testing
+**Captura de la Ejecución**
+<img width="886" height="886" alt="image" src="https://github.com/user-attachments/assets/0d18e38a-4db4-466e-b965-7ddac3243d8c" />
 
 ### PASO 3: Creación de Red Docker
 
@@ -101,6 +103,9 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 docker network create --driver bridge netw-vehiculos
 docker network ls
 ```
+**Captura de la Ejecución**
+
+<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
 
 **Salida esperada:**
 ```
@@ -110,6 +115,8 @@ e21e631237e9   host             host      local
 ef173c5efe1b   netw-vehiculos   bridge    local
 dd26efa30c17   none             null      local
 ```
+**Captura de la Ejecución**
+<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/91472fb3-f8d7-495c-b728-c12773b8fc36" />
 
 **Explicación:**
 - Crea una red personalizada tipo `bridge` llamada `netw-vehiculos`
