@@ -10,7 +10,7 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
 
 ## Configuración e Instalación
 
-### Imagen 1: Configuración de Contenedores Docker
+### PASO 1: Configuración de Contenedores Docker
 
 ```bash
 # MySQL
@@ -40,7 +40,7 @@ phpmyadmin:5.2.2
 - **Volumes**: Persistencia de datos MySQL y script de inicialización
 - **Ports**: MySQL en puerto 3306, phpMyAdmin en puerto 8080
 
-### Imagen 2: Estructura de Base de Datos (init.sql)
+### PASO 2: Estructura de Base de Datos (init.sql)
 
 ```sql
 -- Crear tabla de propietario
@@ -86,7 +86,7 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 - **Relación**: Clave foránea entre vehículo y propietario (1:N)
 - **Datos de prueba**: 5 propietarios y 5 vehículos para testing
 
-### Imagen 3: Creación de Red Docker
+### PASO 3: Creación de Red Docker
 
 ```bash
 docker network create --driver bridge netw-vehiculos
@@ -107,7 +107,7 @@ dd26efa30c17   none             null      local
 - Permite comunicación entre contenedores por nombre
 - Aislamiento de red del resto del sistema
 
-### Imagen 4: Descarga y Ejecución de phpMyAdmin
+### PASO 4: Descarga y Ejecución de phpMyAdmin
 
 ```bash
 docker run -d \
