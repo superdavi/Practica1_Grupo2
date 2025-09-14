@@ -1,4 +1,4 @@
-<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/af92d2ee-9502-4646-bbc7-56d5112ff0ec" />## INTEGRANTES.
+## INTEGRANTES.
     -- DANIEL ALQUINGA
     -- DANIEL BALDEON
     -- WILSON SEGOVIA
