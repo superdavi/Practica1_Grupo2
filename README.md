@@ -125,7 +125,25 @@ dd26efa30c17   none             null      local
 - Permite comunicación entre contenedores por nombre
 - Aislamiento de red del resto del sistema
 
-### PASO 4: Descarga y Ejecución de phpMyAdmin
+## PASO 4 :: Descarga y Ejecución de MySql
+# Ejecutar el contenedor MySQL
+docker run -d --name db-mysql-vehiculos --network netw-vehiculos --env-file .env -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:8.3
+
+# Verificar estado de contenedores
+docker ps -a
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                                                  NAMES
+39bc102b715e   mysql:8.3   "docker-entrypoint.s…"  10 seconds ago  Up 9 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  db-mysql-vehiculos
+Explicación:
+
+CONTAINER ID: Identificador único del contenedor (39bc102b715e)
+IMAGE: Imagen utilizada (mysql:8.3)
+COMMAND: Comando de entrada ejecutado
+CREATED/STATUS: Tiempo de creación y estado actual
+PORTS: Mapeo de puertos - MySQL accesible en puerto 3306 tanto en IPv4 como IPv6
+NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
+Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
+
+### PASO 5: Descarga y Ejecución de phpMyAdmin
 
 ```bash
 docker run -d \
