@@ -1,9 +1,11 @@
 ## INTEGRANTES.
-    -- DANIEL ALQUINGA
-    -- DANIEL BALDEON
-    -- WILSON SEGOVIA
-    -- LEONARDO TUGUMINAGO
-    -- BRYAN MIÑO
+| Nombre | Cargo | URL GitHub |
+|---|:---:|---:|
+| Daniel Alquinga | 🐛 Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
+| Daniel Baldeon | 🐛 Desarrollador |  |
+| Bryan Miño | 🐛 Desarrollador | |
+| Wilson Segovia | 🐛 Desarrollador | |
+| Leonardo Tuguminago | 🐛 Desarrollador | |
 
 # Sistema de Gestión de Vehículos con Docker
 
