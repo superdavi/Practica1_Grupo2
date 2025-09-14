@@ -179,6 +179,10 @@ docker network rm netw-vehiculos
 - **MySQL directo**: localhost:3306
 - **Credenciales**: Configuradas en el archivo `.env`
 
+<img width="886" height="419" alt="image" src="https://github.com/user-attachments/assets/b08f4e44-b7a5-4059-a62f-17b2b74a4ff4" />
+<img width="886" height="469" alt="image" src="https://github.com/user-attachments/assets/621bd885-4111-48cf-994e-f85104e800b4" />
+
+
 ## Estructura del Proyecto
 
 ```
