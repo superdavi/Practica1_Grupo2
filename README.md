@@ -4,8 +4,8 @@
 | Daniel Alquinga | 🐛 Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
 | Daniel Baldeon | 🐛 Desarrollador |  |
 | Bryan Miño | 🐛 Desarrollador | |
-| Wilson Segovia | 🐛 Desarrollador | |
-| Leonardo Tuguminago | 🐛 Desarrollador | |
+| Wilson Segovia | 🐛 Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
+| Leonardo Tuguminago | 🐛 Desarrollador | https://github.com/Tuguminago/Proyectos.git |
 
 # Sistema de Gestión de Vehículos con Docker
 
@@ -225,3 +225,24 @@ PracticaGrupo2/
 - **Seguridad**: Red aislada y variables de entorno para credenciales
 - **Mantenibilidad**: Configuración declarativa y reproducible
 
+##Conclusiones
+
+Logros Alcanzados
+
+Implementación Exitosa de Microservicios: Se logró configurar un sistema distribuido utilizando Docker, separando la base de datos (MySQL) de la interfaz de administración (phpMyAdmin) en contenedores independientes.
+Gestión Eficiente de Redes: La creación de la red personalizada netw-vehiculos permitió la comunicación segura entre contenedores, eliminando la necesidad de exponer servicios innecesarios al host.
+Persistencia de Datos Garantizada: El uso de volúmenes Docker (mysql_data) asegura que la información de propietarios y vehículos se mantenga intacta entre reinicios del sistema.
+Automatización de Inicialización: El script init.sql automatiza la creación de tablas y datos de prueba, reduciendo errores manuales y garantizando consistencia en diferentes entornos.
+Separación de Configuración: El archivo .env centraliza las variables sensibles, mejorando la seguridad y facilitando el despliegue en diferentes ambientes.
+
+Beneficios Obtenidos
+
+Portabilidad: El sistema puede ejecutarse en cualquier máquina con Docker instalado
+Escalabilidad: Fácil agregar nuevos servicios o réplicas de contenedores
+Mantenibilidad: Cada servicio se actualiza independientemente
+Aislamiento: Los fallos en un contenedor no afectan a otros servicios
+Reproducibilidad: El entorno se puede recrear exactamente en cualquier momento
+
+## Recomendaciones.
+
+    Se debe crear primero el volumen y luego el contenedor asociar a estas movidas 
