@@ -225,7 +225,7 @@ PracticaGrupo2/
 - **Seguridad**: Red aislada y variables de entorno para credenciales
 - **Mantenibilidad**: Configuración declarativa y reproducible
 
-#Conclusiones
+# Conclusiones
 
 -Logros Alcanzados
 
