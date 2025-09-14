@@ -46,6 +46,8 @@ phpmyadmin:5.2.2
 - **Network**: Ambos contenedores utilizan la red personalizada `netw-vehiculos`
 - **Volumes**: Persistencia de datos MySQL y script de inicialización
 - **Ports**: MySQL en puerto 3306, phpMyAdmin en puerto 8080
+**CAPTURA DE PANTALLA**
+<img width="886" height="609" alt="image" src="https://github.com/user-attachments/assets/ee9c91e9-a51f-4880-9fc3-50803a45073c" />
 
 ### PASO 2: Estructura de Base de Datos (init.sql)
 
