@@ -196,7 +196,6 @@ docker network rm netw-vehiculos
 PracticaGrupo2/
 ├── .env
 ├── init.sql
-├── docker-compose.yml (opcional)
 └── README.md
 ```
 
