@@ -1,3 +1,10 @@
+## INTEGRANTES.
+    -- DANIEL ALQUINGA
+    -- DANIEL BALDEON
+    -- WILSON SEGOVIA
+    -- LEONARDO TUGUMINAGO
+    -- BRYAN MIÑO
+
 # Sistema de Gestión de Vehículos con Docker
 
 Este proyecto implementa un sistema de gestión de vehículos utilizando Docker, MySQL y phpMyAdmin. El sistema permite administrar propietarios y sus vehículos mediante una base de datos relacional.
@@ -187,9 +194,3 @@ PracticaGrupo2/
 - **Seguridad**: Red aislada y variables de entorno para credenciales
 - **Mantenibilidad**: Configuración declarativa y reproducible
 
-## INTEGRANTES.
-    -- DANIEL ALQUINGA
-    -- DANIEL BALDEON
-    -- WILSON SEGOVIA
-    -- LEONARDO TUGUMINAGO
-    -- BRYAN MIÑO
