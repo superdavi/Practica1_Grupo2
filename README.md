@@ -3,7 +3,7 @@
 |---|:---:|---:|
 | Daniel Alquinga | 🐛 Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
 | Daniel Baldeon | 🐛 Desarrollador | https://github.com/debpdhs/Practica1_Grupo2 |
-| Bryan Miño | 🐛 Desarrollador | |
+| Bryan Miño | 🐺 Desarrollador |https://github.com/bmiomi/tareadocker |
 | Wilson Segovia | 🐛 Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
 | Leonardo Tuguminago | 🐛 Desarrollador | https://github.com/Tuguminago/Proyectos.git |
 
