@@ -28,10 +28,31 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
     |____ despliegues.txt
     |____ init.sql
 
-### PASO 2: Creacion de Red
-    ```bash
-    # Red
-    docker network create netw-vehiculos
+### PASO 2: Creación de Red Docker
+
+```bash
+docker network create --driver bridge netw-vehiculos
+docker network ls
+```
+**Captura de la Ejecución**
+
+<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
+
+**Salida esperada:**
+```
+NETWORK ID     NAME             DRIVER    SCOPE
+c768b266264f   bridge           bridge    local
+e21e631237e9   host             host      local
+ef173c5efe1b   netw-vehiculos   bridge    local
+dd26efa30c17   none             null      local
+```
+**Captura de la Ejecución**
+<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/91472fb3-f8d7-495c-b728-c12773b8fc36" />
+
+**Explicación:**
+- Crea una red personalizada tipo `bridge` llamada `netw-vehiculos`
+- Permite comunicación entre contenedores por nombre
+- Aislamiento de red del resto del sistema
     
 ### PASO 3: Configuración de Contenedores Docker
 
@@ -113,33 +134,8 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 **Captura de la Ejecución**
 <img width="886" height="886" alt="image" src="https://github.com/user-attachments/assets/0d18e38a-4db4-466e-b965-7ddac3243d8c" />
 
-### PASO 5: Creación de Red Docker
 
-```bash
-docker network create --driver bridge netw-vehiculos
-docker network ls
-```
-**Captura de la Ejecución**
-
-<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
-
-**Salida esperada:**
-```
-NETWORK ID     NAME             DRIVER    SCOPE
-c768b266264f   bridge           bridge    local
-e21e631237e9   host             host      local
-ef173c5efe1b   netw-vehiculos   bridge    local
-dd26efa30c17   none             null      local
-```
-**Captura de la Ejecución**
-<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/91472fb3-f8d7-495c-b728-c12773b8fc36" />
-
-**Explicación:**
-- Crea una red personalizada tipo `bridge` llamada `netw-vehiculos`
-- Permite comunicación entre contenedores por nombre
-- Aislamiento de red del resto del sistema
-
-### PASO 6: Descarga y Ejecución de MySql
+### PASO 5: Descarga y Ejecución de MySql
 # Ejecutar el contenedor MySQL
 docker run -d --name db-mysql-vehiculos --network netw-vehiculos --env-file .env -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:8.3
 
@@ -155,7 +151,7 @@ Explicación:
 - NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
 - Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
 
-### PASO 7: Descarga y Ejecución de phpMyAdmin
+### PASO 6: Descarga y Ejecución de phpMyAdmin
 
 ```bash
 docker run -d \
