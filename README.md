@@ -18,6 +18,7 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
 - **Docker Network**: Red personalizada para comunicación entre contenedores
 
 ## Configuración e Instalación
+### PASO 1: Creacion y directorio y elementos
 
 ### PASO 1: Configuración de Contenedores Docker
 
@@ -170,10 +171,10 @@ Pull complete
 
 ### Archivo .env
 ```env
-MYSQL_ROOT_PASSWORD=tu_password_seguro
-MYSQL_DATABASE=vehiculos_db
-MYSQL_USER=vehiculos_user
-MYSQL_PASSWORD=vehiculos_pass
+MYSQL_ROOT_PASSWORD=admin123
+MYSQL_DATABASE=dbVehiculos
+MYSQL_USER=usuario
+MYSQL_PASSWORD=clave123
 ```
 
 ### Comandos Útiles
