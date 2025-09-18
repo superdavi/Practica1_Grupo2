@@ -17,6 +17,7 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
 - **phpMyAdmin 5.2.2**: Interfaz web para administración de la base de datos
 - **Docker Network**: Red personalizada para comunicación entre contenedores
 
+## Configuración e Instalación
 
 ### PASO 1: 📂 Estructura de Archivos
     
@@ -27,7 +28,6 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
     |____ despliegues.txt
     |____ init.sql
 
-## Configuración e Instalación
 ### PASO 2: Creacion de Red
     ```bash
     # Red
