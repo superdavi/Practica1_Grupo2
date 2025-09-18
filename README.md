@@ -65,7 +65,7 @@ phpmyadmin:5.2.2
 **Captura de la Ejecución**
 <img width="886" height="609" alt="image" src="https://github.com/user-attachments/assets/ee9c91e9-a51f-4880-9fc3-50803a45073c" />
 
-### PASO 2: Estructura de Base de Datos (init.sql)
+### PASO 4: Estructura de Base de Datos (init.sql)
 
 ```sql
 -- Crear tabla de propietario
@@ -113,7 +113,7 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 **Captura de la Ejecución**
 <img width="886" height="886" alt="image" src="https://github.com/user-attachments/assets/0d18e38a-4db4-466e-b965-7ddac3243d8c" />
 
-### PASO 3: Creación de Red Docker
+### PASO 5: Creación de Red Docker
 
 ```bash
 docker network create --driver bridge netw-vehiculos
@@ -139,7 +139,7 @@ dd26efa30c17   none             null      local
 - Permite comunicación entre contenedores por nombre
 - Aislamiento de red del resto del sistema
 
-# PASO 4: Descarga y Ejecución de MySql
+### PASO 6: Descarga y Ejecución de MySql
 # Ejecutar el contenedor MySQL
 docker run -d --name db-mysql-vehiculos --network netw-vehiculos --env-file .env -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:8.3
 
@@ -155,7 +155,7 @@ Explicación:
 - NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
 - Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
 
-### PASO 5: Descarga y Ejecución de phpMyAdmin
+### PASO 7: Descarga y Ejecución de phpMyAdmin
 
 ```bash
 docker run -d \
