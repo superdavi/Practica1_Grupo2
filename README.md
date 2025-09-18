@@ -18,9 +18,20 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
 - **Docker Network**: Red personalizada para comunicación entre contenedores
 
 ## Configuración e Instalación
-### PASO 1: Creacion y directorio y elementos
+### PASO 1: Creacion de Red
+    ```bash
+    # Red
+    docker network create netw-vehiculos
+### PASO 2: 📂 Estructura de Archivos
+    
+    Proyecto Vehículos
+    |
+    |____ .env
+    |____ README.md
+    |____ despliegues.txt
+    |____ init.sql
 
-### PASO 1: Configuración de Contenedores Docker
+### PASO 3: Configuración de Contenedores Docker
 
 ```bash
 # MySQL
