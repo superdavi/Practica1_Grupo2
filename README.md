@@ -134,48 +134,6 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 **Captura de la Ejecución**
 <img width="886" height="886" alt="image" src="https://github.com/user-attachments/assets/0d18e38a-4db4-466e-b965-7ddac3243d8c" />
 
-
-### PASO 5: Descarga y Ejecución de MySql
-# Ejecutar el contenedor MySQL
-docker run -d --name db-mysql-vehiculos --network netw-vehiculos --env-file .env -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:8.3
-
-# Verificar estado de contenedores
-<img width="886" height="180" alt="image" src="https://github.com/user-attachments/assets/73bc67d7-a332-40b4-9525-fc2ba37221f1" />
-
-Explicación:
-- CONTAINER ID: Identificador único del contenedor (39bc102b715e)
-- IMAGE: Imagen utilizada (mysql:8.3)
-- COMMAND: Comando de entrada ejecutado
-- CREATED/STATUS: Tiempo de creación y estado actual
-- PORTS: Mapeo de puertos - MySQL accesible en puerto 3306 tanto en IPv4 como IPv6
-- NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
-- Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
-
-### PASO 6: Descarga y Ejecución de phpMyAdmin
-
-```bash
-docker run -d \
---name web_phpmyadmin_vehiculos \
---network netw-vehiculos \
---env-file .env \
--e PMA_HOST=db-mysql-vehiculos \
--p 8080:80 \
-phpmyadmin:5.2.2
-```
-
-**Salida:**
-```
-Unable to find image 'phpmyadmin:5.2.2' locally
-5.2.2: Pulling from library/phpmyadmin
-[Capas descargadas...]
-Pull complete
-```
-
-**Explicación:**
-- Docker descarga la imagen phpMyAdmin si no existe localmente
-- Configura la conexión al contenedor MySQL mediante `PMA_HOST`
-- Expone el servicio web en el puerto 8080
-
 ## Configuración Adicional
 
 ### Archivo .env
@@ -216,17 +174,6 @@ docker network rm netw-vehiculos
 
 <img width="886" height="419" alt="image" src="https://github.com/user-attachments/assets/b08f4e44-b7a5-4059-a62f-17b2b74a4ff4" />
 <img width="886" height="469" alt="image" src="https://github.com/user-attachments/assets/621bd885-4111-48cf-994e-f85104e800b4" />
-
-
-## Estructura del Proyecto
-
-```
-PracticaGrupo2/
-├── .env
-├── init.sql
-├── despliegue.txt
-└── README.md
-```
 
 ## Características Técnicas
 
