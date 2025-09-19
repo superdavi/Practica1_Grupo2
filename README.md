@@ -7,57 +7,51 @@
 | Wilson Segovia | 🐛 Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
 | Leonardo Tuguminago | 🐛 Desarrollador | https://github.com/Tuguminago/Proyectos.git |
 
-# Sistema de Gestión de Vehículos con Docker
+# 1. Sistema de Gestión de Vehículos con Docker
 
 Este proyecto implementa un sistema de gestión de vehículos utilizando Docker, MySQL y phpMyAdmin. El sistema permite administrar propietarios y sus vehículos mediante una base de datos relacional.
 
-## Arquitectura del Sistema
+## 1.1. Arquitectura del Sistema
 
 - **MySQL 8.3**: Base de datos para almacenar información de propietarios y vehículos
-- **phpMyAdmin 5.2.2**: Interfaz web para administración de la base de datos
+- **PhpMyAdmin 5.2.2**: Interfaz web para administración de la base de datos
 - **Docker Network**: Red personalizada para comunicación entre contenedores
+- **Volúmenes**: Gestionados por Docker y almacenados en /var/lib/docker/volumes/.
 
-## Configuración e Instalación
+# 2. Configuración e Instalación
 
 ### PASO 1: 📂 Estructura de Archivos
-    
+
+```bash
     Proyecto Vehículos
     |
     |____ .env
     |____ README.md
     |____ despliegues.txt
     |____ init.sql
-
+```
 ### PASO 2: Creación de Red Docker
+
+---
 
 ```bash
 docker network create --driver bridge netw-vehiculos
 docker network ls
 ```
+
 **Captura de la Ejecución**
 
 <img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
 
-**Salida esperada:**
-```
-NETWORK ID     NAME             DRIVER    SCOPE
-c768b266264f   bridge           bridge    local
-e21e631237e9   host             host      local
-ef173c5efe1b   netw-vehiculos   bridge    local
-dd26efa30c17   none             null      local
-```
-**Captura de la Ejecución**
-<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/91472fb3-f8d7-495c-b728-c12773b8fc36" />
-
 **Explicación:**
+
 - Crea una red personalizada tipo `bridge` llamada `netw-vehiculos`
 - Permite comunicación entre contenedores por nombre
 - Aislamiento de red del resto del sistema
     
-### PASO 3: Configuración de Contenedores Docker
+### PASO 3: Despliegue de Contenedores Docker MySQL
 
 ```bash
-# MySQL
 docker run -d \
 --name db-mysql-vehiculos \
 --network netw-vehiculos \
@@ -66,8 +60,19 @@ docker run -d \
 -v "$PWD"/init.sql:/docker-entrypoint-initdb.d/init.sql \
 -p 3306:3306 \
 mysql:8.3
+```
+### Paso 3.1. Salida esperada
 
-# phpMyAdmin
+<img width="725" height="443" alt="contenedor mysql" src="https://github.com/user-attachments/assets/407ce7d7-1577-4a08-a9e2-992a3385b065" />
+
+### Paso 3.2. Verificar estado Up del contendor
+
+<img width="1224" height="108" alt="listamos contenedor creado de mysql" src="https://github.com/user-attachments/assets/c9d014fa-6ef5-4936-943c-a4581284d3e9" />
+
+
+### PASO 4: Despliegue de Contenedores Docker PhpMyAdmin
+
+```bash
 docker run -d \
 --name web_phpmyadmin_vehiculos \
 --network netw-vehiculos \
@@ -78,13 +83,12 @@ phpmyadmin:5.2.2
 ```
 
 **Explicación:**
+
 - **MySQL Container**: Crea un contenedor con MySQL 8.3, monta un volumen persistente para los datos y ejecuta un script de inicialización
 - **phpMyAdmin Container**: Proporciona interfaz web conectada al contenedor MySQL
 - **Network**: Ambos contenedores utilizan la red personalizada `netw-vehiculos`
 - **Volumes**: Persistencia de datos MySQL y script de inicialización
 - **Ports**: MySQL en puerto 3306, phpMyAdmin en puerto 8080
-**Captura de la Ejecución**
-<img width="886" height="609" alt="image" src="https://github.com/user-attachments/assets/ee9c91e9-a51f-4880-9fc3-50803a45073c" />
 
 ### PASO 4: Estructura de Base de Datos (init.sql)
 
