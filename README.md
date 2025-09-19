@@ -1,11 +1,11 @@
 ## INTEGRANTES.
 | Nombre | Cargo | URL GitHub |
 |---|:---:|---:|
-| Daniel Alquinga | 🐛 Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
-| Daniel Baldeon | 🐛 Desarrollador | https://github.com/debpdhs/Practica1_Grupo2 |
-| Bryan Miño | 🐺 Desarrollador |https://github.com/bmiomi/tareadocker |
-| Wilson Segovia | 🐛 Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
-| Leonardo Tuguminago | 🐛 Desarrollador | https://github.com/Tuguminago/Proyectos.git |
+| Daniel Alquinga | :technologist: Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
+| Daniel Baldeon | :technologist: Desarrollador | https://github.com/debpdhs/Practica1_Grupo2 |
+| Bryan Miño | :technologist: Desarrollador |https://github.com/bmiomi/tareadocker |
+| Wilson Segovia | :technologist: Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
+| Leonardo Tuguminago | :technologist: Desarrollador | https://github.com/Tuguminago/Proyectos.git |
 
 # 1. Sistema de Gestión de Vehículos con Docker
 
@@ -30,7 +30,7 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
     |____ despliegues.txt
     |____ init.sql
 ```
-### PASO 2: Creación de Red Docker 🐳
+### PASO 2: Creación de Red Docker
 
 ---
 
@@ -39,7 +39,7 @@ docker network create --driver bridge netw-vehiculos
 docker network ls
 ```
 
-**Captura de la Ejecución**
+**Salida Esperada**
 
 <img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
 
@@ -49,7 +49,7 @@ docker network ls
 - Permite comunicación entre contenedores por nombre
 - Aislamiento de red del resto del sistema
     
-### PASO 3: Despliegue de Contenedores Docker 🐳 MySQL
+### PASO 3: Despliegue del Contenedor Docker MySQL
 
 ```bash
 docker run -d \
@@ -61,16 +61,26 @@ docker run -d \
 -p 3306:3306 \
 mysql:8.3
 ```
-### Paso 3.1. Salida esperada
+### Paso 3.1. Salida Esperada
 
 <img width="725" height="443" alt="contenedor mysql" src="https://github.com/user-attachments/assets/407ce7d7-1577-4a08-a9e2-992a3385b065" />
 
-### Paso 3.2. Verificar estado Up del contendor
+**Explicación:**
+
+- **MySQL Container**: Crea un contenedor con MySQL 8.3, monta un volumen persistente para los datos y ejecuta un script de inicialización
+- **Network**: Ambos contenedores utilizan la red personalizada `netw-vehiculos`
+- **Volumes**: Persistencia de datos MySQL y script de inicialización
+- **Ports**: MySQL en puerto 3306, phpMyAdmin en puerto 3306
+
+### Paso 3.2. Verificar Estado Up del Contendor
+
+```bash
+docker ps -a
+```
 
 <img width="1224" height="108" alt="listamos contenedor creado de mysql" src="https://github.com/user-attachments/assets/c9d014fa-6ef5-4936-943c-a4581284d3e9" />
 
-
-### PASO 4: Despliegue de Contenedores Docker PhpMyAdmin
+### PASO 4: Despliegue del Contenedor Docker PhpMyAdmin
 
 ```bash
 docker run -d \
@@ -82,15 +92,49 @@ docker run -d \
 phpmyadmin:5.2.2
 ```
 
+### Paso 4.1. Salida Esperada
+
+<img width="676" height="597" alt="despliegue contendor php" src="https://github.com/user-attachments/assets/01e8072f-3d3d-4de2-8e9e-9a3265084f44" />
+
 **Explicación:**
 
-- **MySQL Container**: Crea un contenedor con MySQL 8.3, monta un volumen persistente para los datos y ejecuta un script de inicialización
 - **phpMyAdmin Container**: Proporciona interfaz web conectada al contenedor MySQL
 - **Network**: Ambos contenedores utilizan la red personalizada `netw-vehiculos`
 - **Volumes**: Persistencia de datos MySQL y script de inicialización
-- **Ports**: MySQL en puerto 3306, phpMyAdmin en puerto 8080
+- **Ports**: MySQL en puerto 80, phpMyAdmin en puerto 8080
+  
+### Paso 4.2. Verificar Estado Up del Contendor
 
-### PASO 4: Estructura de Base de Datos (init.sql)
+```bash
+docker ps -a
+```
+
+<img width="1215" height="142" alt="listar los dos contendores" src="https://github.com/user-attachments/assets/9ae7e739-fa84-48d4-926e-d5ec933529b8" />
+
+### PASO 5: Ingreso al Portal del Servidor PhpMyAdmin
+
+```bash
+http://localhost:8080
+```
+
+![WhatsApp Image 2025-09-18 at 22 08 55](https://github.com/user-attachments/assets/ac27e52f-fec4-41c4-a693-28e36dffcc98)
+
+
+### PASO 6: Credenciales de Ingreso
+
+
+```bash
+usuario: usuario
+password: clave123
+```
+
+
+### PASO 7: Revisamos la Estructura de Base de Datos
+
+
+<img width="1275" height="705" alt="revisamos la estructura de la bd" src="https://github.com/user-attachments/assets/dc74e0d5-f413-47cd-9795-c7bc27ee2c70" />
+
+### PASO 8: Scritp init.sql
 
 ```sql
 -- Crear tabla de propietario
@@ -131,16 +175,19 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 ```
 
 **Explicación:**
+
 - **Tabla propietario**: Almacena información personal de los dueños de vehículos
 - **Tabla vehiculo**: Contiene datos de los vehículos con referencia al propietario
 - **Relación**: Clave foránea entre vehículo y propietario (1:N)
 - **Datos de prueba**: 5 propietarios y 5 vehículos para testing
-**Captura de la Ejecución**
-<img width="886" height="886" alt="image" src="https://github.com/user-attachments/assets/0d18e38a-4db4-466e-b965-7ddac3243d8c" />
+  
 
-## Configuración Adicional
+### Configuración Adicional
 
-### Archivo .env
+
+
+**Archivo .env**
+
 ```env
 MYSQL_ROOT_PASSWORD=admin123
 MYSQL_DATABASE=dbVehiculos
@@ -170,33 +217,18 @@ docker rm db-mysql-vehiculos web_phpmyadmin_vehiculos
 docker network rm netw-vehiculos
 ```
 
-## Acceso al Sistema
 
-- **phpMyAdmin**: http://localhost:8080
-- **MySQL directo**: localhost:3306
-- **Credenciales**: Configuradas en el archivo `.env`
+# 3. Conclusiones
 
-<img width="886" height="419" alt="image" src="https://github.com/user-attachments/assets/b08f4e44-b7a5-4059-a62f-17b2b74a4ff4" />
-<img width="886" height="469" alt="image" src="https://github.com/user-attachments/assets/621bd885-4111-48cf-994e-f85104e800b4" />
+**Logros Alcanzados**
 
-## Características Técnicas
+- Implementación Exitosa: Se logró configurar un sistema distribuido utilizando Docker, separando la base de datos (MySQL) de la interfaz de administración (phpMyAdmin) en contenedores independientes.
+- Gestión Eficiente de Redes: La creación de la red personalizada netw-vehiculos, permitió la comunicación segura entre contenedores, eliminando la necesidad de exponer servicios innecesarios al host.
+- Persistencia de Datos Garantizada: El uso de volúmenes Docker (mysql_data), asegura que la información de propietarios y vehículos se mantenga intacta entre reinicios del sistema.
+- Automatización de Inicialización: El script init.sql, automatiza la creación de tablas y datos de prueba, reduciendo errores manuales y garantizando consistencia en diferentes entornos.
+- Separación de Configuración: El archivo .env, centraliza las variables sensibles, mejorando la seguridad y facilitando el despliegue en diferentes ambientes.
 
-- **Persistencia**: Los datos se mantienen entre reinicios del contenedor
-- **Escalabilidad**: Fácil agregar más contenedores o servicios
-- **Seguridad**: Red aislada y variables de entorno para credenciales
-- **Mantenibilidad**: Configuración declarativa y reproducible
-
-# Conclusiones
-
--Logros Alcanzados
-
-Implementación Exitosa de Microservicios: Se logró configurar un sistema distribuido utilizando Docker, separando la base de datos (MySQL) de la interfaz de administración (phpMyAdmin) en contenedores independientes.
-Gestión Eficiente de Redes: La creación de la red personalizada netw-vehiculos permitió la comunicación segura entre contenedores, eliminando la necesidad de exponer servicios innecesarios al host.
-Persistencia de Datos Garantizada: El uso de volúmenes Docker (mysql_data) asegura que la información de propietarios y vehículos se mantenga intacta entre reinicios del sistema.
-Automatización de Inicialización: El script init.sql automatiza la creación de tablas y datos de prueba, reduciendo errores manuales y garantizando consistencia en diferentes entornos.
-Separación de Configuración: El archivo .env centraliza las variables sensibles, mejorando la seguridad y facilitando el despliegue en diferentes ambientes.
-
-Beneficios Obtenidos
+**Beneficios Obtenidos**
 
 - Portabilidad: El sistema puede ejecutarse en cualquier máquina con Docker instalado
 - Escalabilidad: Fácil agregar nuevos servicios o réplicas de contenedores
@@ -204,7 +236,8 @@ Beneficios Obtenidos
 - Aislamiento: Los fallos en un contenedor no afectan a otros servicios
 - Reproducibilidad: El entorno se puede recrear exactamente en cualquier momento
 
-# Recomendaciones.
 
- - Es necesario crear primero la red Docker y luego el contenedor, ya que este inconveniente se presento al momento de ejecutar la practica. 
+# 4. Recomendaciones.
+
+ - Es necesario crear primero la red Docker y luego el contenedor, ya que este inconveniente se presento al momento de ejecutar la tarea. 
  - Se debe validar que la versión de MySQL sea compatible con phpMyAdmin, ya que una incompatibilidad entre ambas versiones podría causar errores al intentar levantar el contenedor.
