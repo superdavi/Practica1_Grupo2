@@ -30,7 +30,7 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
     |____ despliegues.txt
     |____ init.sql
 ```
-### PASO 2: Creación de Red Docker
+### PASO 2: Creación de Red Docker 🐳
 
 ---
 
@@ -49,7 +49,7 @@ docker network ls
 - Permite comunicación entre contenedores por nombre
 - Aislamiento de red del resto del sistema
     
-### PASO 3: Despliegue de Contenedores Docker MySQL
+### PASO 3: Despliegue de Contenedores Docker 🐳 MySQL
 
 ```bash
 docker run -d \
