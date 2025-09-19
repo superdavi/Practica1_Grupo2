@@ -1,6 +1,3 @@
-#Crear la red
-docker network create --driver bridge netw-vehiculos
-
 # MySQL
 
 docker run -d \
